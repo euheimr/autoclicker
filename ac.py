@@ -7,9 +7,9 @@ from pynput.mouse import Button, Controller
 from pynput.keyboard import Listener, KeyCode, Key
 
 # four variables are created to control the auto-clicker
-delay = 10.0
-sword_slot_number = KeyCode(char="1")
-food_slot_number = KeyCode(char="3")
+delay = 20.0
+# sword_slot_number = KeyCode(char="1")
+# food_slot_number = KeyCode(char="3")
 start_stop_key = KeyCode(char="`")
 stop_key = Key.esc
 
@@ -24,9 +24,9 @@ class ClickMouse(threading.Thread):
         self.running = False
         self.program_running = True
 
-        # For Food!!
-        self.food_slot_number = food_slot_number
-        self.sword_slot_number = sword_slot_number
+        ### For Food!! ###
+        # self.food_slot_number = food_slot_number
+        # self.sword_slot_number = sword_slot_number
         self.hit_count = 0
         self.hit_limit = 99999
 
@@ -88,13 +88,17 @@ def on_press(key):
     if key == start_stop_key:
         if click_thread.running:
             click_thread.stop_clicking()
+            print("Paused.")
         else:
+            print("Starting...")
             click_thread.start_clicking()
 
     # here exit method is called and when key is pressed it terminates auto clicker
     elif key == stop_key:
+        print("Exiting...")
         click_thread.exit()
         listener.stop()
+        exit(0)
 
 
 with Listener(on_press=on_press) as listener:
