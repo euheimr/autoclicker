@@ -47,20 +47,20 @@ class ClickMouse(threading.Thread):
             while self.running:
                 try:
                     # Eat if the hit count is over a limit
-                    if self.hit_count >= self.hit_limit:
+                    #if self.hit_count >= self.hit_limit:
                         # Swap to the food slot in the hotbar
                         #mouse.click(button=self.food_slot_number)
                         #kb.press(food_slot_number)
 
                         # Hold right click to eat and sleep for 3 seconds
-                        print(
-                            f"Eating using SLOT #{str(self.food_slot_number)}"
-                        )
-                        mouse.press(Button.right)
-                        time.sleep(3)
-                        mouse.release(Button.right)
-                        # reset the hit count
-                        self.hit_count = 0
+                    #    print(
+                    #        f"Eating using SLOT #{str(self.food_slot_number)}"
+                    #    )
+                    #    mouse.press(Button.right)
+                    #    time.sleep(3)
+                    #    mouse.release(Button.right)
+                    #    # reset the hit count
+                    #    self.hit_count = 0
 
                     # If we dont need to eat, just attack
                     mouse.click(self.button_attack)
