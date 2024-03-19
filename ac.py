@@ -11,7 +11,7 @@ delay = 20.0
 # sword_slot_number = KeyCode(char="1")
 # food_slot_number = KeyCode(char="3")
 start_stop_key = KeyCode(char="`")
-stop_key = Key.esc
+quit_key = Key.f4
 
 
 # threading.Thread is used to control clicks
@@ -94,7 +94,7 @@ def on_press(key):
             click_thread.start_clicking()
 
     # here exit method is called and when key is pressed it terminates auto clicker
-    elif key == stop_key:
+    elif key == quit_key:
         print("Exiting...")
         click_thread.exit()
         listener.stop()
